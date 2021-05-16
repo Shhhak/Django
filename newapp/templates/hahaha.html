@@ -1,0 +1,56 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand">Shaaak<sup>'</sup>s blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Sketch</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">memo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">입니다</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <br>
+    <div class="card" style="width: 18rem;">
+      <img src="" class="card-img-top" alt="my photo">
+      <div class="card-body">
+        <h5 class="card-title">@shhh._.aka</h5>
+        <p class="card-text">저의 자그마한 공간입니다.<br>↘↘ instagram ↙↙</p>
+        <a href="https://www.instagram.com/shhh._.aka/" class="btn btn-outline-warning">https://www.instagram.com</a>
+      </div>
+    </div>
+{% for blog in blogs.all %}
+    <div class="container"> 
+    <br><br>
+    <div class="card" style="background-color: #e3f2fd;">
+    <div class="card-body">
+    <h3 class="card-title">{{blog.title}}</h3>
+    <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
+    <p class="card-text">{{blog.summary}}</p>
+    <a href="{% url 'detail' blog.id %}" class="card-link"><button type="button" class="btn btn-outline-info">열려라 참깨!</button></a>
+    </div>
+    </div> <br>
+    </div>
+{% endfor %}
+<div class="alert alert-info" role="alert">
+  _
+</div>
+
+</body>
